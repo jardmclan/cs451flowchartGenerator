@@ -10,6 +10,8 @@ num_with_pt [0-9]*\.[0-9]+|[0-9]+\.[0-9]*
 %%
 
 if 		{return IF;}
+while 		{return WHILE;}
+else		{return ELSE;}
 
 {num_with_pt} {  // first
             	stringstream(yytext) >> yylval.x;  
@@ -23,18 +25,41 @@ if 		{return IF;}
         	}
 
 
-[A-Za-z]+   {      	 
+[A-Za-z]+   {      	
+				string s = yytext;
+				yylval.s = save(s); 
             	return ID;
         	}
 
 \"[^"]*\"		{
 			string s = yytext;
-			save(s);
+			yylval.s = save(s); 
 			
 			return STRING;
 		}
 
-[-+;(){}]  	return *yytext;
+[-+*/\%]?=	{
+			string s = yytext;
+			yylval.s = saveOP(s);
+			return AOP; }
+
+[-+*/\%]		{
+			string s = yytext;
+			yylval.s = saveOP(s);
+			return OP;}
+
+==|!=|>|<|<=|>=	{
+			string s = yytext;
+			yylval.s = saveOP(s);
+			return COP; }
+
+--|\+\+		{
+			string s = yytext;
+			yylval.s = saveOP(s);
+			return IOP; }
+
+
+[;(){}]  	return *yytext;
 
 
 [ \t\n]   	; /* skip whitespace */
