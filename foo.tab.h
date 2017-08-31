@@ -45,6 +45,7 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
+<<<<<<< HEAD
     ID = 258,
     FLOATPT = 259,
     INTEGER = 260,
@@ -56,6 +57,25 @@ extern int yydebug;
     COP = 266,
     AOP = 267,
     IOP = 268
+=======
+    VOID = 258,
+    TYPE = 259,
+    ID = 260,
+    RETURN = 261,
+    FLOATPT = 262,
+    INTEGER = 263,
+    CHAR = 264,
+    PARAMS = 265,
+    CALLPARAMS = 266,
+    STRING = 267,
+    IF = 268,
+    WHILE = 269,
+    ELSE = 270,
+    OP = 271,
+    COP = 272,
+    AOP = 273,
+    IOP = 274
+>>>>>>> 31601c60eecd415a7f2b7235c899ecdb37cbd19a
   };
 #endif
 
@@ -71,7 +91,11 @@ union YYSTYPE
 	char c;
 	int s;
 
+<<<<<<< HEAD
 #line 75 "foo.tab.h" /* yacc.c:1909  */
+=======
+#line 81 "foo.tab.h" /* yacc.c:1909  */
+>>>>>>> 31601c60eecd415a7f2b7235c899ecdb37cbd19a
 };
 
 typedef union YYSTYPE YYSTYPE;

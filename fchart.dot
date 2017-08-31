@@ -1,0 +1,91 @@
+digraph {
+node [shape=circle]
+0->1
+0[label = "main"]3->4
+3[label = "a+1", shape = "rectangle"]
+5->6
+5[label = "a--", shape = "rectangle"]
+4->5[label = true]
+4[label = "a", shape = diamond]4->6[label= false]
+6->7
+6[label = "a=34", shape = "rectangle"]
+2->3[label = true]
+2[label = "true", shape = diamond]2->7[label= false]
+7->8
+7[label = "b++", shape = "rectangle"]
+9->10
+9[label = "a+1", shape = "rectangle"]
+11->12
+11[label = "a--", shape = "rectangle"]
+10->11[label = true]
+10[label = "a", shape = diamond]10->12[label= false]
+12->13
+12[label = "a=34", shape = "rectangle"]
+14->15
+14[label = "a--", shape = "rectangle"]
+13->14[label = true]
+13[label = "a", shape = diamond]13->15[label= false]
+       15[label = "b++", shape = "rectangle"]
+8->9[label="true"]
+8[label = "true",  shape = "diamond"]16->17
+16[label = "1+1", shape = "rectangle"]
+       18[label = "f (a,b)", shape = "rectangle"]
+17:s->18:n[label=true]
+17[label = "1+2", shape=diamond]18:w->17:w
+17[label = "1+2"]17:e->19[label = false]
+8->16[label="false"]
+15->19
+19->20
+19[label = "b=1", shape = "rectangle"]
+       21[label = "i++", shape = "rectangle"]
+20:s->21:n[label=true]
+20[label = "1", shape=diamond]21:w->20:w
+20[label = "1"]20:e->22[label = false]
+22->23
+22[label = "b=2", shape = "rectangle"]
+1->2[label = true]
+1[label = "a<2", shape = diamond]1->23[label= false]
+       24[label = "3+4", shape = "rectangle"]
+23->24[label="true"]
+23[label = "1+2",  shape = "diamond"]27->28
+27[label = "l=i-2", shape = "rectangle"]
+31->32
+31[label = "j*=t-y+4-l+7/4", shape = "rectangle"]
+33->34
+33[label = "la = f(3,m)", shape = "rectangle"]
+32->33[label = true]
+32[label = "a", shape = diamond]32->34[label= false]
+       34[label = "f-1", shape = "rectangle"]
+30->31[label="true"]
+30[label = "1+2",  shape = "diamond"]       36[label = "x=2", shape = "rectangle"]
+35:s->36:n[label=true]
+35[label = "2", shape=diamond]36:w->35:w
+35[label = "2"]35:e->37[label = false]
+37->38
+37[label = "t++", shape = "rectangle"]
+30->35[label="false"]
+34->38
+       38[label = "1", shape = "rectangle"]
+29->30[label = true]
+29[label = "false", shape = diamond]29->39[label= false]
+28->29[label="true"]
+28[label = "true",  shape = "diamond"]28->39[label="false"]
+38->39
+39->40
+39[label = "t++", shape = "rectangle"]
+41->42
+41[label = "run (23,b)", shape = "rectangle"]
+40->41[label = true]
+40[label = "4+m", shape = diamond]40->42[label= false]
+       42[label = "b--", shape = "rectangle"]
+26:s->27:n[label=true]
+26[label = "true", shape=diamond]42:w->26:w
+26[label = "true"]26:e->43[label = false]
+       43[label = "test++", shape = "rectangle"]
+25:s->26:n[label=true]
+25[label = "true", shape=diamond]43:w->25:w
+25[label = "true"]25:e->44[label = false]
+23->25[label="false"]
+24->44
+44[label = "return 0", shape = "circle"]
+}
